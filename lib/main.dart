@@ -300,15 +300,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     tilename,
-                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   const Text(
                     "Lorem Ipsum dolor sit amet",
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   Text(
                     author + " " + time + " 3 comments",
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
                   ),
                 ],
               ),
