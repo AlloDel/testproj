@@ -150,18 +150,21 @@ class _MyHomePageState extends State<MyHomePage> {
               brandName,
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 27,
             ),
             const Text(
               "Lorem Ipsum dolor sit amet cosectetur adipiscing elit sed do eiusmod tempor incsh jsdg hjsd aliqua",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 12,
+                fontSize: 14,
               ),
             ),
             const SizedBox(
-              height: 54,
+              height: 27,
             ),
             SizedBox(
               child: Column(
@@ -188,7 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(
-              height: 54,
+              height: 27,
             ),
             SizedBox(
               child: Column(
@@ -200,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(
-              height: 54,
+              height: 27,
             ),
           ],
         ),
