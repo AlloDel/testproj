@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   detailTab(tileName, dummyAuthor),
                   SizedBox(
                     width: size.width,
-                    height: size.height * 1.3,
+                    // height: size.height * 0.8,
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: 6,
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(
               width: size.width,
-              height: size.height * 0.85,
+              // height: size.height * 0.6,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 4,
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             imageTab(tileName, dummyTime, dummyAuthor),
             SizedBox(
               width: size.width,
-              height: size.height * 0.85,
+              // height: size.height * 0.85,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 4,
@@ -89,12 +89,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     return rowTile(tileName, dummyAuthor, dummyTime);
                   }),
             ),
+            const SizedBox(
+              height: 54,
+            ),
             //////////
             dataIntake(),
             //////////
+            const SizedBox(
+              height: 54,
+            ),
             SizedBox(
               width: size.width,
-              height: size.height * 0.85,
+              // height: size.height * 0.50,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 4,
@@ -103,15 +109,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
             ),
             imageTab(tileName, dummyTime, dummyAuthor),
+            const SizedBox(
+              height: 54,
+            ),
             SizedBox(
               width: size.width,
-              height: size.height * 0.85,
+              // height: size.height * 0.50,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 4,
                   itemBuilder: (context, index) {
                     return rowTile(tileName, dummyAuthor, dummyTime);
                   }),
+            ),
+            const SizedBox(
+              height: 54,
             ),
             bottomTab(),
           ],
@@ -154,19 +166,23 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Connect with us."),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.call)),
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.call)),
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.call)),
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.call)),
-                    ],
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.call)),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.call)),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.call)),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.call)),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -201,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
             colors: [Colors.purple, Colors.purpleAccent]),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -209,26 +225,40 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               "Get updated with the best news about events in your inbox",
               style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 16,
+                  color: Colors.white,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 12,
             ),
             const TextField(
               decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
                 border: InputBorder.none,
-
                 hintText: "Your name",
                 // hintStyle: ,
               ),
             ),
+            const SizedBox(
+              height: 12,
+            ),
             const TextField(
               decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
                 border: InputBorder.none,
                 hintText: "Your email address",
                 // hintStyle: ,
               ),
             ),
+            const SizedBox(
+              height: 12,
+            ),
             Container(
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.width * 0.1,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16), color: Colors.blue),
               child: TextButton(
@@ -256,6 +286,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
+            width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -269,15 +300,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     tilename,
-                    style: const TextStyle(color: Colors.purple, fontSize: 12),
+                    style: const TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   const Text(
                     "Lorem Ipsum dolor sit amet",
-                    style: TextStyle(color: Colors.purple, fontSize: 14),
+                    style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   Text(
                     author + " " + time + " 3 comments",
-                    style: const TextStyle(color: Colors.purple, fontSize: 10),
+                    style: const TextStyle(color: Colors.white, fontSize: 10),
                   ),
                 ],
               ),
@@ -301,91 +332,99 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget eventCard() {
     Size size = MediaQuery.of(context).size;
-    return Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            border: Border.all(
-          color: Colors.purple,
-          width: 4,
-        )),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: const Text("EVENTS YOU NEED TO ATTEND"),
-                trailing: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.arrow_back_ios)),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.arrow_forward_ios))
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/designt.jpg'),
-                    fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+          // padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+              border: Border.all(
+            color: Colors.purple,
+            width: 4,
+          )),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: const Text("EVENTS YOU NEED TO ATTEND"),
+                  trailing: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.arrow_back_ios)),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.arrow_forward_ios))
+                    ],
                   ),
-                  shape: BoxShape.rectangle,
                 ),
-              ),
-              const Text(
-                "THE EVENT NAME",
-                style: TextStyle(color: Colors.purple, fontSize: 16),
-              ),
-              const Text(
-                "APRIL 1",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              const Text(
-                "Accra, Ghana",
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-              InkWell(
-                child: Container(
-                  height: size.height * 0.1,
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomCenter,
-                        colors:
-                            // selectColor(),
-                            [Colors.purple, Colors.purpleAccent]),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/designt.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    shape: BoxShape.rectangle,
                   ),
-                  child: const Center(
-                    child: Text(
-                      "ACCESS EVENT",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                const Text(
+                  "THE EVENT NAME",
+                  style: TextStyle(color: Colors.purple, fontSize: 16),
+                ),
+                const Text(
+                  "APRIL 1",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                ),
+                const Text(
+                  "Accra, Ghana",
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                InkWell(
+                  child: Container(
+                    height: size.height * 0.1,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomCenter,
+                          colors:
+                              // selectColor(),
+                              [Colors.purple, Colors.purpleAccent]),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "ACCESS EVENT",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
-          ),
-        ));
+                )
+              ],
+            ),
+          )),
+    );
   }
 
   Widget detailTab(tilename, author) {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+        color: Colors.purple,
+        width: 1,
+      )),
       padding: const EdgeInsets.all(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            // padding: const EdgeInsets.all(8),
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
@@ -406,13 +445,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget rowTab(tilename, author) {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+        color: Colors.purple,
+        width: 1,
+      )),
       padding: const EdgeInsets.all(8),
       child: ListTile(
         leading: Container(
-          padding: const EdgeInsets.all(8),
+          // padding: const EdgeInsets.all(8),
           height: MediaQuery.of(context).size.height * 0.2,
-          width: MediaQuery.of(context).size.width * 0.3,
+          width: MediaQuery.of(context).size.width * 0.2,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/designt.jpg'),
@@ -421,13 +465,16 @@ class _MyHomePageState extends State<MyHomePage> {
             shape: BoxShape.rectangle,
           ),
         ),
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(tilename),
-            Text(tilename),
-          ],
+        title: Align(
+          alignment: Alignment.topLeft,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(tilename),
+              Text(tilename),
+            ],
+          ),
         ),
         subtitle: Text(author),
       ),
@@ -435,13 +482,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget rowTile(tilename, time, author) {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+        color: Colors.purple,
+        width: 1,
+      )),
       padding: const EdgeInsets.all(8),
       child: ListTile(
         leading: Container(
           padding: const EdgeInsets.all(8),
           height: MediaQuery.of(context).size.height * 0.2,
-          width: MediaQuery.of(context).size.width * 0.3,
+          width: MediaQuery.of(context).size.width * 0.2,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/designt.jpg'),
@@ -450,21 +502,27 @@ class _MyHomePageState extends State<MyHomePage> {
             shape: BoxShape.rectangle,
           ),
         ),
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(tilename),
-            Text(tilename),
-          ],
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(tilename),
+              Text(tilename),
+            ],
+          ),
         ),
-        subtitle: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(author),
-            Text(time),
-          ],
+        subtitle: Align(
+          alignment: Alignment.topLeft,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(author),
+              Text(time),
+            ],
+          ),
         ),
       ),
     );
@@ -485,6 +543,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AppBar(
+              backgroundColor: Colors.transparent,
               elevation: 0,
               leading: Builder(builder: (BuildContext context) {
                 return IconButton(
@@ -509,10 +568,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            const Center(
-              child: Text(
-                brandName,
-                style: TextStyle(color: Colors.white, fontSize: 20),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(
+                  brandName,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
               ),
             )
           ],
