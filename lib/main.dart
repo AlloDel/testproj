@@ -30,11 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
-  // void _openDraw() {
-  //   _drawerKey.currentState.openDrawer();
-  // }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,62 +38,76 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: customAppbar(myAppBarHeight),
       body: Stack(
+        // mainAxisSize: MainAxisSize.min,
+        fit: StackFit.expand,
         children: [
           Padding(
             padding: const EdgeInsets.all(8),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 detailTab(tileName, dummyAuthor),
-                ListView(
-                  children: [
-                    rowTab(tileName, dummyAuthor),
-                    rowTab(tileName, dummyAuthor),
-                    rowTab(tileName, dummyAuthor),
-                    rowTab(tileName, dummyAuthor),
-                    rowTab(tileName, dummyAuthor),
-                    rowTab(tileName, dummyAuthor),
-                  ],
+                SizedBox(
+                  width: size.width,
+                  height: size.height * 1.3,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return rowTab(tileName, dummyAuthor);
+                    },
+                  ),
                 ),
               ],
             ),
           ),
-          ListView(
-            children: [
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-            ],
+          SizedBox(
+            width: size.width,
+            height: size.height * 0.85,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return rowTile(tileName, dummyAuthor, dummyTime);
+                }),
           ),
+
           eventCard(),
           imageTab(tileName, dummyTime, dummyAuthor),
-          ListView(
-            children: [
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-            ],
+          SizedBox(
+            width: size.width,
+            height: size.height * 0.85,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return rowTile(tileName, dummyAuthor, dummyTime);
+                }),
           ),
           //////////
           dataIntake(),
           //////////
-          ListView(
-            children: [
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-            ],
+          SizedBox(
+            width: size.width,
+            height: size.height * 0.85,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return rowTile(tileName, dummyAuthor, dummyTime);
+                }),
           ),
           imageTab(tileName, dummyTime, dummyAuthor),
-          ListView(
-            children: [
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-              rowTile(tileName, dummyAuthor, dummyTime),
-            ],
+          SizedBox(
+            width: size.width,
+            height: size.height * 0.85,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return rowTile(tileName, dummyAuthor, dummyTime);
+                }),
           ),
           bottomTab(),
         ],
@@ -117,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const Text(
@@ -138,6 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text("Connect with us."),
                   Row(
@@ -160,6 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: const [
                   Text("Prodigee technologies 2022"),
                   Text("All rights reserved. Privacy & Terms"),
@@ -186,6 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const Text(
@@ -235,6 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Card(
       elevation: 1,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             decoration: const BoxDecoration(
@@ -246,6 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     tilename,
@@ -290,10 +305,13 @@ class _MyHomePageState extends State<MyHomePage> {
         )),
         child: Center(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
                 title: const Text("EVENTS YOU NEED TO ATTEND"),
                 trailing: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
                         onPressed: () {},
@@ -359,6 +377,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             padding: const EdgeInsets.all(8),
@@ -398,6 +417,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         title: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(tilename),
@@ -426,6 +446,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         title: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(tilename),
@@ -433,6 +454,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         subtitle: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(author),
@@ -454,6 +476,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   [Colors.purple, Colors.purpleAccent]),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AppBar(
