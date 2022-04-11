@@ -37,80 +37,85 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: customAppbar(myAppBarHeight),
-      body: Stack(
-        // mainAxisSize: MainAxisSize.min,
-        fit: StackFit.expand,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                detailTab(tileName, dummyAuthor),
-                SizedBox(
-                  width: size.width,
-                  height: size.height * 1.3,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 6,
-                    itemBuilder: (context, index) {
-                      return rowTab(tileName, dummyAuthor);
-                    },
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          // fit: StackFit.expand,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  detailTab(tileName, dummyAuthor),
+                  SizedBox(
+                    width: size.width,
+                    height: size.height * 1.3,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 6,
+                      itemBuilder: (context, index) {
+                        return rowTab(tileName, dummyAuthor);
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.85,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return rowTile(tileName, dummyAuthor, dummyTime);
-                }),
-          ),
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.85,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return rowTile(tileName, dummyAuthor, dummyTime);
+                  }),
+            ),
 
-          eventCard(),
-          imageTab(tileName, dummyTime, dummyAuthor),
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.85,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return rowTile(tileName, dummyAuthor, dummyTime);
-                }),
-          ),
-          //////////
-          dataIntake(),
-          //////////
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.85,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return rowTile(tileName, dummyAuthor, dummyTime);
-                }),
-          ),
-          imageTab(tileName, dummyTime, dummyAuthor),
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.85,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return rowTile(tileName, dummyAuthor, dummyTime);
-                }),
-          ),
-          bottomTab(),
-        ],
+            eventCard(),
+            imageTab(tileName, dummyTime, dummyAuthor),
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.85,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return rowTile(tileName, dummyAuthor, dummyTime);
+                  }),
+            ),
+            //////////
+            dataIntake(),
+            //////////
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.85,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return rowTile(tileName, dummyAuthor, dummyTime);
+                  }),
+            ),
+            imageTab(tileName, dummyTime, dummyAuthor),
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.85,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return rowTile(tileName, dummyAuthor, dummyTime);
+                  }),
+            ),
+            bottomTab(),
+          ],
+        ),
       ),
     );
   }
@@ -505,7 +510,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const Center(
-              child: Text(brandName),
+              child: Text(
+                brandName,
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
             )
           ],
         ),
